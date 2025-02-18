@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppLayoutBuilder extends StatelessWidget {
-  final int randomDivider; // Corrected variable name to follow Dart conventions
-  const AppLayoutBuilder({Key? key, required this.randomDivider})
+  final int randomDivider;
+  final double width; // Corrected variable name to follow Dart conventions
+  const AppLayoutBuilder(
+      {Key? key, required this.randomDivider, this.width = 3})
       : super(key: key);
 
   @override
@@ -15,7 +17,7 @@ class AppLayoutBuilder extends StatelessWidget {
           children: List.generate(
             (constraints.maxWidth / randomDivider).floor(), // Use maxWidth
                 (index) => SizedBox(
-              width: 3,
+              width: width,
               height: 1,
               child: DecoratedBox(
                 decoration: BoxDecoration(color: Colors.white),

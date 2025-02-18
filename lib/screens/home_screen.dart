@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/base/res/media.dart';
 import 'package:flutter_practice/base/res/styles/app_style.dart';
 import 'package:flutter_practice/base/widgets/app_double_text.dart';
 import 'package:flutter_practice/base/widgets/ticket_view.dart';
@@ -35,10 +36,7 @@ class HomeScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                          image: NetworkImage(
-                            'https://codecanyon8.kreativdev.com/evento/assets/admin/img/64533cea2a869.ico',
-                          ),
-                          fit: BoxFit.cover,
+                          image: AssetImage(AppMedia.logo)
                         ),
                       ))
                 ],

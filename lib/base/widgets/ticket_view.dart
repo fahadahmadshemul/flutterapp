@@ -3,6 +3,8 @@ import 'package:flutter_practice/base/res/styles/app_style.dart';
 import 'package:flutter_practice/base/widgets/app_layout_builder_widget.dart';
 import 'package:flutter_practice/base/widgets/big_circle.dart';
 import 'package:flutter_practice/base/widgets/big_dot.dart';
+import 'package:flutter_practice/base/widgets/text_style_fourth.dart';
+import 'package:flutter_practice/base/widgets/text_style_third.dart';
 
 class TicketView extends StatelessWidget {
   const TicketView({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class TicketView extends StatelessWidget {
             margin: EdgeInsets.all(16),
             child: Column(
               children: [
+                //########### Blue part of the ticket ###########
                 Container(
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -28,10 +31,8 @@ class TicketView extends StatelessWidget {
                     child: Column(children: [
                       //show departure and destination with icons
                       Row(children: [
-                        Text(
-                          "NCY",
-                          style: AppStyle.headlineStyleThree
-                              .copyWith(color: Colors.white),
+                        TextStyleThird(
+                          text: "NCY",
                         ),
                         Expanded(child: Container()),
                         BigDot(),
@@ -55,11 +56,7 @@ class TicketView extends StatelessWidget {
                             )),
                         BigDot(),
                         Expanded(child: Container()),
-                        Text(
-                          "LDN",
-                          style: AppStyle.headlineStyleThree
-                              .copyWith(color: Colors.white),
-                        )
+                        TextStyleThird(text: "LDN")
                       ]),
 
                       SizedBox(
@@ -69,38 +66,37 @@ class TicketView extends StatelessWidget {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "New York",
-                              style: AppStyle.headlineStyleThree
-                                  .copyWith(color: Colors.white),
-                            ),
-                            Text(
-                              "8H 30M",
-                              style: AppStyle.headlineStyleThree
-                                  .copyWith(color: Colors.white),
-                            ),
-                            Text(
-                              "London",
-                              style: AppStyle.headlineStyleThree
-                                  .copyWith(color: Colors.white),
-                            )
+                            SizedBox(
+                                width: 100,
+                                child: TextStyleFourth(text: "New York")),
+                            TextStyleFourth(text: "8H 30M"),
+                            SizedBox(
+                                width: 100,
+                                child: TextStyleFourth(
+                                    text: "London", align: TextAlign.end))
                           ]),
                     ]),
                   ),
                 ),
+                //########### Divider part of the ticket ###########
                 Container(
                   height: 20,
                   color: AppStyle.ticketOrange,
                   child: Row(
                     children: [
                       BigCircle(isRight: false),
-                      Expanded(child: Container()),
+                      Expanded(
+                          child: AppLayoutBuilder(
+                            randomDivider: 20,
+                            width: 6,
+                          )),
                       BigCircle(
                         isRight: true,
                       ),
                     ],
                   ),
                 ),
+                //########### Orange part of the ticket ###########
                 Container(
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -112,38 +108,13 @@ class TicketView extends StatelessWidget {
                     child: Column(children: [
                       //show departure and destination with icons
                       Row(children: [
-                        Text(
-                          "NCY",
-                          style: AppStyle.headlineStyleThree
-                              .copyWith(color: Colors.white),
+                        TextStyleThird(text: "1st May"),
+                        Expanded(child: Container()),
+                        Expanded(
+                          child: TextStyleThird(text: "8:00 AM"),
                         ),
                         Expanded(child: Container()),
-                        BigDot(),
-                        Expanded(
-                            child: Stack(
-                              children: [
-                                SizedBox(
-                                  height: 24,
-                                  child: AppLayoutBuilder(
-                                    randomDivider: 6,
-                                  ),
-                                ),
-                                Center(
-                                    child: Transform.rotate(
-                                        angle: 1.57,
-                                        child: Icon(
-                                          Icons.flight,
-                                          color: Colors.white,
-                                        )))
-                              ],
-                            )),
-                        BigDot(),
-                        Expanded(child: Container()),
-                        Text(
-                          "LDN",
-                          style: AppStyle.headlineStyleThree
-                              .copyWith(color: Colors.white),
-                        )
+                        TextStyleThird(text: "23")
                       ]),
 
                       SizedBox(
@@ -153,21 +124,9 @@ class TicketView extends StatelessWidget {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "New York",
-                              style: AppStyle.headlineStyleThree
-                                  .copyWith(color: Colors.white),
-                            ),
-                            Text(
-                              "8H 30M",
-                              style: AppStyle.headlineStyleThree
-                                  .copyWith(color: Colors.white),
-                            ),
-                            Text(
-                              "London",
-                              style: AppStyle.headlineStyleThree
-                                  .copyWith(color: Colors.white),
-                            )
+                            TextStyleThird(text: "Date"),
+                            TextStyleThird(text: "Deparature Time"),
+                            TextStyleThird(text: "Number"),
                           ]),
                     ]),
                   ),
